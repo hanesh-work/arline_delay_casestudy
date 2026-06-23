@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <b>A Bayesian hierarchical analysis of airline and airport effects on U.S. flight delays using BTS On-Time Performance data.</b>
+  <b>A Bayesian hierarchical analysis of U.S. flight delays using BTS data to separate airline operational effects from airport infrastructure effects.</b>
 </p>
 
 ---
@@ -18,7 +18,7 @@
 
 This project studies U.S. flight delay patterns using a Bayesian hierarchical model. The goal is to separate airline operational effects from airport infrastructure effects while controlling for weather, NAS delay, security delay, and late aircraft delay.
 
-Using **13,295 flight records** from **January to June 2025**, the analysis shows that airline choice has a larger impact on delay variation than airport choice [file:24].
+Using 13,295 flight records from January to June 2025, the analysis shows that airline choice has a larger impact on delay variation than airport choice.
 
 ---
 
@@ -32,28 +32,28 @@ The project focuses on three questions:
 - Which airlines consistently save or add delay time?
 - Which airports perform best and worst after adjustment?
 
-To answer these questions, the project uses a **Bayesian hierarchical model with partial pooling** and **variational inference** [file:24].
+To answer these questions, the project uses a Bayesian hierarchical model with partial pooling and variational inference.
 
 ---
 
 ## Dataset Overview
 
-The analysis is built on **BTS On-Time Performance data** aggregated by carrier-airport pair [file:24].
+The analysis is built on BTS On-Time Performance data aggregated by carrier-airport pair.
 
 ### Data Scope
 
-- **13,295 flight records**.
-- **January to June 2025**.
+- 13,295 flight records.
+- January to June 2025.
 - Aggregated to the carrier-airport level.
-- Restricted to the **top 59 airports**, which account for about 80% of traffic.
+- Restricted to the top 59 airports, which account for about 80% of traffic.
 
 ### Outcome and Controls
 
-- **Outcome:** average delay minutes per arriving flight.
-- **Controls:** weather delay, NAS delay, late aircraft delay, and security delay.
-- **Groups:** airline and airport.
+- Outcome: average delay minutes per arriving flight.
+- Controls: weather delay, NAS delay, late aircraft delay, and security delay.
+- Groups: airline and airport.
 
-This setup avoids unfairly penalizing high-volume carriers and helps isolate residual performance differences [file:24].
+This setup avoids unfairly penalizing high-volume carriers and helps isolate residual performance differences.
 
 ---
 
@@ -76,15 +76,15 @@ The model uses a hierarchical structure to estimate airline and airport effects 
 
 ### Inference Method
 
-- **Variational inference** was used instead of MCMC.
+- Variational inference was used instead of MCMC.
 - This made estimation faster for a dataset with over 13,000 observations and 100+ groups.
-- The method still produced stable variance estimates [file:24].
+- The method still produced stable variance estimates.
 
 ---
 
 ## Results Summary
 
-The main finding is that **airlines matter more than airports** when explaining residual delay variation [file:24].
+The main finding is that airline choice matters more than airport choice when explaining residual delay variation.
 
 ### Variance Components
 
@@ -115,13 +115,13 @@ This means airline choice explains more of the remaining delay variation than ai
 | PSA Airlines | +4.85 | [+1.00, +10.99] |
 | CommuteAir | +3.99 | [-0.04, +9.82] |
 
-Horizon Air and Envoy Air reduce delays by about 5 to 6 minutes per flight, while Air Wisconsin adds nearly 8 minutes [file:24].
+Horizon Air and Envoy Air reduce delays by about 5 to 6 minutes per flight, while Air Wisconsin adds nearly 8 minutes.
 
 ---
 
 ## Airport Rankings
 
-The model also produced airport-level estimates after controlling for airline effects [file:24].
+The model also produced airport-level estimates after controlling for airline effects.
 
 ### Best Airports
 
@@ -137,43 +137,7 @@ These Hawaiian airports had the strongest adjusted delay performance.
 - Midland-Odessa.
 - Several Texas regional airports.
 
-The airport results show meaningful variation, but the spread is smaller than the airline spread [file:24].
-
----
-
-## Key Figures
-
-### Airport Coverage
-
-<p align="center">
-  <img src="image/image_1.png" alt="Pareto analysis of airport traffic coverage" width="900" />
-</p>
-
-This figure shows that a small number of airports account for most flight traffic, which justifies restricting the analysis to the busiest hubs [file:24].
-
-### Traffic Distribution
-
-<p align="center">
-  <img src="image/image_2.png" alt="Traffic distribution across airports" width="900" />
-</p>
-
-The long-tail pattern confirms that most airports have very low traffic, creating noise in efficiency estimates. Focusing on the top airports improves reliability [file:24].
-
-### Model Specification
-
-<p align="center">
-  <img src="image/image_3.png" alt="Bayesian hierarchical model specification" width="900" />
-</p>
-
-This diagram summarizes the hierarchical structure used to separate airline effects from airport effects while controlling for delay drivers [file:24].
-
-### Results Tables
-
-<p align="center">
-  <img src="image/image_4.png" alt="Variance comparison and airline rankings" width="900" />
-</p>
-
-This figure shows the core result: airline variance exceeds airport variance, and the ranking tables identify the most efficient and least efficient airlines [file:24].
+The airport results show meaningful variation, but the spread is smaller than the airline spread.
 
 ---
 
@@ -185,7 +149,7 @@ The findings suggest that operational differences across airlines are more impor
 - Airport quality matters, but less than carrier operations.
 - Partial pooling prevents small samples from being over-interpreted.
 - Controlling for late aircraft delay helps reduce cascade bias.
-- The model produces credible intervals, making uncertainty visible rather than hidden [file:24].
+- The model produces credible intervals, making uncertainty visible rather than hidden.
 
 ---
 
@@ -194,7 +158,7 @@ The findings suggest that operational differences across airlines are more impor
 - Travelers should prioritize airline choice before airport choice.
 - Corporate travel policies can save meaningful time by favoring efficient carriers.
 - Airports still matter, but operational carrier management is the bigger lever.
-- The modeling framework can be extended to trucking, rail, or delivery systems [file:24].
+- The modeling framework can be extended to trucking, rail, or delivery systems.
 
 ---
 
@@ -204,7 +168,7 @@ The findings suggest that operational differences across airlines are more impor
 - The data spans January to June 2025 only.
 - Some unmeasured factors such as aircraft age and crew training are not included.
 - Delay reasons are reported by airlines and may contain reporting bias.
-- Interaction effects between airline and airport were not modeled [file:24].
+- Interaction effects between airline and airport were not modeled.
 
 ---
 
@@ -225,9 +189,9 @@ The findings suggest that operational differences across airlines are more impor
 
 ```bash
 .
-├── airline_delay_code.ipynb
-├── report.pdf
-├── airline_Delay_data.csv
+├── arline_delay_code.ipynb
+├── Report.pdf
+├── airline_delay_data.csv
 └── README.md
 ```
 
@@ -235,9 +199,9 @@ The findings suggest that operational differences across airlines are more impor
 
 ## Conclusion
 
-This project shows that airline choice has a larger impact on delay risk than airport choice. Using Bayesian hierarchical modeling with partial pooling, the analysis estimated carrier and airport effects in a way that is both interpretable and uncertainty-aware [file:24].
+This project shows that airline choice has a larger impact on delay risk than airport choice. Using Bayesian hierarchical modeling with partial pooling, the analysis estimated carrier and airport effects in a way that is both interpretable and uncertainty-aware.
 
-The strongest takeaway is simple: **pick the right airline first** [file:24].
+The strongest takeaway is simple: pick the right airline first.
 
 ---
 
